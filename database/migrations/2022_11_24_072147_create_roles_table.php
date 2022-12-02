@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            
+            $table->id('role_id');           // 役割ID
+            $table->string('role_name', 50); // 役割名
+            $table->timestamps();            // created_atとupdated_at
+            $table->softDeletes();           // deleted_at
+            
         });
     }
 
