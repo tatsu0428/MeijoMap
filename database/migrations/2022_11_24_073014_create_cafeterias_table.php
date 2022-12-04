@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dinings', function (Blueprint $table) {
+        Schema::create('cafeterias', function (Blueprint $table) {
             
-            $table->id('dining_id');                // 食堂ID
-            $table->string('dining_name');          // 食堂名
+            $table->id('cafeteria_id');             // 食堂ID
+            $table->string('cafeteria_name');       // 食堂名
+            $table->string('floor');                // 場所（階）
             $table->string('img_path');             // 食堂の紹介画像のパス
             $table->text('introduction');           // 紹介文
             $table->string('congestion_situation'); // 混雑状況
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dinings');
+        Schema::dropIfExists('cafeterias');
     }
 };

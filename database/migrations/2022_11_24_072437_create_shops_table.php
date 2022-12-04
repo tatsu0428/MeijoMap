@@ -17,6 +17,7 @@ return new class extends Migration
             
             $table->id('shop_id');                // ショップID
             $table->string('shop_name');          // ショップ名
+            $table->string('floor');              // 場所（階）
             $table->string('img_path');           // ショップの紹介画像のパス
             $table->text('introduction');         // 紹介文
             $table->string('business_hours');     // 営業時間

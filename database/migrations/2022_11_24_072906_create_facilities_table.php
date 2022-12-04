@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('institutions', function (Blueprint $table) {
+        Schema::create('facilities', function (Blueprint $table) {
             
-            $table->id('institution_id');         // 施設ID
-            $table->string('institution_name');   // 施設名
+            $table->id('facility_id');            // 施設ID
+            $table->string('facility_name');      // 施設名
+            $table->string('floor');              // 場所（階）
             $table->string('img_path');           // 施設の紹介画像のパス
             $table->text('introduction');         // 紹介文
             $table->string('business_hours');     // 営業時間
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institutions');
+        Schema::dropIfExists('facilities');
     }
 };

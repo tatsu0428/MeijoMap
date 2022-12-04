@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('item_name');           // 商品名
             $table->string('img_path');            // 商品の紹介画像のパス
             $table->string('item_price');          // 商品の値段
+            $table->string('sold_out');            // 売り切れ状況
             $table->timestamps();                  // created_atとupdated_at
             $table->softDeletes();                 // deleted_at
             $table->foreign('shop_id')->references('shop_id')->on('shops')->onUpdate('CASCADE')->onDelete('CASCADE'); // 外部キーの設定

@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('cafeteria_news', function (Blueprint $table) {
             
-            $table->id('menu_id');                      // メニューID
-            $table->unsignedBigInteger('cafeteria_id'); // 食堂ID（外部キー）
-            $table->string('menu_name');                // メニュー名
-            $table->string('img_path');                 // メニューの紹介画像のパス
-            $table->string('menu_price');               // メニューの値段
-            $table->string('sold_out');                 // 売り切れ状況
+            $table->id('news_id');                      // ニュースID
+            $table->unsignedBigInteger('cafeteria_id'); // 施設ID（外部キー）
+            $table->string('news_title');               // タイトル
+            $table->text('news_content');               // 内容
+            $table->string('img_path');                 // 添付画像のパス
             $table->timestamps();                       // created_atとupdated_at
             $table->softDeletes();                      // deleted_at
             $table->foreign('cafeteria_id')->references('cafeteria_id')->on('cafeterias')->onUpdate('CASCADE')->onDelete('CASCADE'); // 外部キーの設定
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('cafeteria_news');
     }
 };
