@@ -21,7 +21,7 @@ class CafeteriaNewsSeeder extends Seeder
             'cafeteria_id' => '1',
             'news_title' => '今月のメニュー',
             'news_content' => '今月のメニューを更新しました．',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             
@@ -30,7 +30,7 @@ class CafeteriaNewsSeeder extends Seeder
             'cafeteria_id' => '1',
             'news_title' => 'メニューの値上げについて',
             'news_content' => '原材料価格高騰につき，値上げします．',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         
@@ -39,7 +39,7 @@ class CafeteriaNewsSeeder extends Seeder
             'cafeteria_id' => '3',
             'news_title' => 'メニューの値上げについて',
             'news_content' => '原材料価格高騰につき，値上げします．',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             

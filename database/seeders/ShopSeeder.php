@@ -20,7 +20,7 @@ class ShopSeeder extends Seeder
             
             'shop_name' => 'スクエア',
             'floor' => '1F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '様々なものが売っています．',
             'business_hours' => '9:00〜17:00',
             'map_id' => 1,
@@ -31,7 +31,7 @@ class ShopSeeder extends Seeder
             
             'shop_name' => 'MU SHOP LIONA',
             'floor' => '1F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '様々なものが売っています．',
             'business_hours' => '9:00〜17:00',
             'map_id' => 3,

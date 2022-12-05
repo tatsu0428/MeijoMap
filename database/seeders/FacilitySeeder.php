@@ -20,7 +20,7 @@ class FacilitySeeder extends Seeder
             
             'facility_name' => '情報処理教室',
             'floor' => '6F, 7F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => 'PCを使うことができます．',
             'business_hours' => '9:00〜22:00',
             'map_id' => 1,
@@ -31,7 +31,7 @@ class FacilitySeeder extends Seeder
             
             'facility_name' => '講義室',
             'floor' => '1F〜4F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '講義を受けます．',
             'business_hours' => '特になし',
             'map_id' => 2,
@@ -42,7 +42,7 @@ class FacilitySeeder extends Seeder
             
             'facility_name' => '講義室',
             'floor' => '1F〜4F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '講義を受けます．',
             'business_hours' => '特になし',
             'map_id' => 3,
@@ -53,7 +53,7 @@ class FacilitySeeder extends Seeder
             
             'facility_name' => '情報処理教室',
             'floor' => '5F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => 'PCを使うことができます．',
             'business_hours' => '9:00〜22:00',
             'map_id' => 4,
@@ -64,7 +64,7 @@ class FacilitySeeder extends Seeder
             
             'facility_name' => '講義室',
             'floor' => '1F〜4F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '講義を受けます．',
             'business_hours' => '特になし',
             'map_id' => 4,

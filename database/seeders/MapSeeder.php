@@ -19,6 +19,7 @@ class MapSeeder extends Seeder
         DB::table('maps')->insert([[
             
             'building_name' => 'タワー75',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '情報処理教室，食堂，売店',
             'top' => 0,
             'left' => 0,
@@ -28,6 +29,7 @@ class MapSeeder extends Seeder
         ],[
             
             'building_name' => '共通講義棟南',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '講義室，ゼミ，LL教室',
             'top' => 0,
             'left' => 0,
@@ -37,6 +39,7 @@ class MapSeeder extends Seeder
         ],[
             
             'building_name' => '共通講義棟北',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '講義室，学生ホール，自習室，実験室，食堂，売店',
             'top' => 0,
             'left' => 0,
@@ -46,6 +49,7 @@ class MapSeeder extends Seeder
         ],[
             
             'building_name' => '共通講義棟東',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '講義室，情報処理教室，書庫',
             'top' => 0,
             'left' => 0,

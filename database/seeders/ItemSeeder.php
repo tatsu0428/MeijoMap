@@ -20,9 +20,9 @@ class ItemSeeder extends Seeder
             
             'shop_id' => '1',
             'item_name' => 'オレンジジュース',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'item_price' => '150円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             
@@ -30,7 +30,7 @@ class ItemSeeder extends Seeder
             
             'shop_id' => '1',
             'item_name' => '牛丼',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'item_price' => '450円',
             'sold_out' => '売り切れ',
             'created_at' => new DateTime(),
@@ -40,9 +40,9 @@ class ItemSeeder extends Seeder
             
             'shop_id' => '2',
             'item_name' => '焼きそば',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'item_price' => '400円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             
@@ -50,9 +50,9 @@ class ItemSeeder extends Seeder
             
             'shop_id' => '2',
             'item_name' => '週刊少年ジャンプ',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'item_price' => '300円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             

@@ -20,7 +20,7 @@ class CafeteriaSeeder extends Seeder
             
             'cafeteria_name' => 'そらいろラウンジ',
             'floor' => '15F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '様々なメニューがあります．',
             'congestion_situation' => '混んでいます．',
             'business_hours' => '11:00〜17:00',
@@ -32,7 +32,7 @@ class CafeteriaSeeder extends Seeder
             
             'cafeteria_name' => 'カーサ',
             'floor' => '1F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '様々なメニューがあります．',
             'congestion_situation' => '混んでいます．',
             'business_hours' => '11:00〜17:00',
@@ -44,7 +44,7 @@ class CafeteriaSeeder extends Seeder
             
             'cafeteria_name' => 'オリーブ',
             'floor' => '1F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '様々なメニューがあります．',
             'congestion_situation' => '混んでいます．',
             'business_hours' => '11:00〜17:00',
@@ -56,7 +56,7 @@ class CafeteriaSeeder extends Seeder
             
             'cafeteria_name' => '名城食堂',
             'floor' => 'B1F',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'introduction' => '様々なメニューがあります．',
             'congestion_situation' => '混んでいます．',
             'business_hours' => '11:00〜17:00',

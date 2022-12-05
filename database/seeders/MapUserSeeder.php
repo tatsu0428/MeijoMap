@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class UserSeeder extends Seeder
+class MapUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([[
+        DB::table('map_users')->insert([[
             
             'user_name' => 'taro',
             'password' => 'taro123',

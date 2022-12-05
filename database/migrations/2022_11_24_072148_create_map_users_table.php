@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('map_users', function (Blueprint $table) {
             
             $table->id('user_id');                 // ユーザーID
             $table->string('user_name', 50);       // ユーザー名
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('map_users');
     }
 };

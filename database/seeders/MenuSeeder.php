@@ -20,7 +20,7 @@ class MenuSeeder extends Seeder
             
             'cafeteria_id' => '1',
             'menu_name' => 'A定食',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'menu_price' => '500円',
             'sold_out' => '売り切れ',
             'created_at' => new DateTime(),
@@ -30,9 +30,9 @@ class MenuSeeder extends Seeder
             
             'cafeteria_id' => '1',
             'menu_name' => 'B定食',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'menu_price' => '500円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         
@@ -40,9 +40,9 @@ class MenuSeeder extends Seeder
             
             'cafeteria_id' => '1',
             'menu_name' => 'C定食',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'menu_price' => '500円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             
@@ -50,7 +50,7 @@ class MenuSeeder extends Seeder
             
             'cafeteria_id' => '2',
             'menu_name' => 'A定食',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'menu_price' => '500円',
             'sold_out' => '売り切れ',
             'created_at' => new DateTime(),
@@ -60,9 +60,9 @@ class MenuSeeder extends Seeder
             
             'cafeteria_id' => '2',
             'menu_name' => 'B定食',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'menu_price' => '500円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         
@@ -70,9 +70,9 @@ class MenuSeeder extends Seeder
             
             'cafeteria_id' => '2',
             'menu_name' => 'C定食',
-            //'img_path' => '',
+            'img_path' => 'storage/sample/default.png',
             'menu_price' => '500円',
-            //'sold_out' => '売り切れ',
+            'sold_out' => '販売中',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             

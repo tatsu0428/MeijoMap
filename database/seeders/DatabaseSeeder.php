@@ -14,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            
+            RoleSeeder::class,
+            MapUserSeeder::class,
+            MapSeeder::class,
+            ShopSeeder::class,
+            ItemSeeder::class,
+            ShopNewsSeeder::class,
+            FacilitySeeder::class,
+            FacilityNewsSeeder::class,
+            CafeteriaSeeder::class,
+            MenuSeeder::class,
+            CafeteriaNewsSeeder::class,
+            
+        ]);
     }
 }
