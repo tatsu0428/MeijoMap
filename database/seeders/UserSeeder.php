@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class MapUserSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +16,10 @@ class MapUserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('map_users')->insert([[
+        DB::table('users')->insert([[
             
-            'user_name' => 'taro',
+            'name' => 'taro',
+            'email' => 'taro123@ccmailg.meijo-u.ac.jp',
             'password' => 'taro123',
             'role_id' => 1,
             'created_at' => new DateTime(),
@@ -26,7 +27,8 @@ class MapUserSeeder extends Seeder
             
         ],[
             
-            'user_name' => 'admin',
+            'name' => 'admin',
+            'email' => 'admin123@ccmailg.meijo-u.ac.jp',
             'password' => 'admin123',
             'role_id' => 2,
             'created_at' => new DateTime(),
@@ -34,7 +36,8 @@ class MapUserSeeder extends Seeder
         
         ],[
             
-            'user_name' => 'hanako',
+            'name' => 'hanako',
+            'email' => 'hanako123@ccmailg.meijo-u.ac.jp',
             'password' => 'hanako123',
             'role_id' => 3,
             'created_at' => new DateTime(),
@@ -42,7 +45,8 @@ class MapUserSeeder extends Seeder
             
         ],[
             
-            'user_name' => 'alice',
+            'name' => 'alice',
+            'email' => 'alice123@ccmailg.meijo-u.ac.jp',
             'password' => 'alice123',
             'role_id' => 4,
             'created_at' => new DateTime(),
@@ -50,7 +54,8 @@ class MapUserSeeder extends Seeder
             
         ],[
             
-            'user_name' => 'bob',
+            'name' => 'bob',
+            'email' => 'bob123@ccmailg.meijo-u.ac.jp',
             'password' => 'bob123',
             'role_id' => 5,
             'created_at' => new DateTime(),
