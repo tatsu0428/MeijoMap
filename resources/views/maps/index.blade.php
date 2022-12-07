@@ -12,7 +12,9 @@
         <div class='maps'>
             @foreach ($maps as $map)
                 <div class='map'>
-                    <h2 class='bulding_name'>{{ $map->building_name }}</h2>
+                    <h2 class='bulding_name'>
+                        <a href="/maps/{{ $map->map_id }}">{{ $map->building_name }}</a>
+                    </h2>
                     <p class='introduction'>{{ $map->introduction }}</p>
                 </div>
             @endforeach

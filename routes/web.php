@@ -15,3 +15,4 @@ use App\Http\Controllers\MapController;
 */
 
 Route::get('/', [MapController::class, 'index']);
+Route::get('/maps/{map}', [MapController::class, 'show']);

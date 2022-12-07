@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Map extends Model
+class Shop extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'map_id'; // 主キー名の変更
+    protected $primaryKey = 'shop_id'; // 主キー名の変更
     
 }
