@@ -27,7 +27,7 @@
             @foreach ($cafeterias as $cafeteria)
                 <div class='cafeteria'>
                     <h3 class='cafeteria_name'>
-                        {{ $cafeteria->cafeteria_name }}
+                        <a href="/cafeterias/{{ $cafeteria->cafeteria_id }}">{{ $cafeteria->cafeteria_name }}</a>
                     </h3>
                 </div>
             @endforeach

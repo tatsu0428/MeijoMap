@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Building</title>
+        <title>{{ $shop->shop_name }}</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -10,6 +10,20 @@
         <h1 class='shop_name'>
             {{ $shop->shop_name }}
         </h1>
+        
+        <p class='introduction'>
+            {{ $shop->introduction }}
+        </p>
+        
+        <h2 class='floor'>場所</h2>
+        <p class='shop_floor'>
+            {{ $shop->floor }}
+        </p>
+        
+        <h2 class='business_hours'>営業時間</h2>
+        <p class='shop_business_hours'>
+            {{ $shop->business_hours }}
+        </p>
         
         <div class='items'>
             <h2>おすすめ商品</h2>
