@@ -11,14 +11,14 @@
             {{ $map->building_name }}
         </h1>
         
-        <div class='shops'>
-            <h2>Shops</h2>
-            @foreach ($shops as $shop)
-                <div class='shop'>
-                    <h3 class='shop_name'>
-                        {{ $shop->shop_name }}
+        <div class='facilities'>
+            <h2>Facilities</h2>
+            @foreach ($facilities as $facility)
+                <div class='facility'>
+                    <h3 class='facility_name'>
+                        {{ $facility->facility_name }}
                     </h3>
-                    <p class='shop_introduction'>{{ $shop->introduction }}</p>
+                    <p class='facility_introduction'>{{ $facility->introduction }}</p>
                 </div>
             @endforeach
         </div>
@@ -35,14 +35,14 @@
             @endforeach
         </div>
         
-        <div class='facilities'>
-            <h2>Facilities</h2>
-            @foreach ($facilities as $facility)
-                <div class='facility'>
-                    <h3 class='facility_name'>
-                        {{ $facility->facility_name }}
+        <div class='shops'>
+            <h2>Shops</h2>
+            @foreach ($shops as $shop)
+                <div class='shop'>
+                    <h3 class='shop_name'>
+                        <a href="/shops/{{ $shop->shop_id }}">{{ $shop->shop_name }}</a>
                     </h3>
-                    <p class='facility_introduction'>{{ $facility->introduction }}</p>
+                    <p class='shop_introduction'>{{ $shop->introduction }}</p>
                 </div>
             @endforeach
         </div>
