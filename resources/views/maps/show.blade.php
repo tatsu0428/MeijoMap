@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Building</title>
+        <title>{{ $map->building_name }}</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -16,9 +16,8 @@
             @foreach ($facilities as $facility)
                 <div class='facility'>
                     <h3 class='facility_name'>
-                        {{ $facility->facility_name }}
+                        <a href="/facilities/{{ $facility->facility_id }}">{{ $facility->facility_name }}</a>
                     </h3>
-                    <p class='facility_introduction'>{{ $facility->introduction }}</p>
                 </div>
             @endforeach
         </div>
@@ -30,7 +29,6 @@
                     <h3 class='cafeteria_name'>
                         {{ $cafeteria->cafeteria_name }}
                     </h3>
-                    <p class='cafeteria_introduction'>{{ $cafeteria->introduction }}</p>
                 </div>
             @endforeach
         </div>
@@ -42,7 +40,6 @@
                     <h3 class='shop_name'>
                         <a href="/shops/{{ $shop->shop_id }}">{{ $shop->shop_name }}</a>
                     </h3>
-                    <p class='shop_introduction'>{{ $shop->introduction }}</p>
                 </div>
             @endforeach
         </div>

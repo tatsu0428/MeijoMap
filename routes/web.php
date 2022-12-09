@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\FacilityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ use App\Http\Controllers\ShopController;
 Route::get('/', [MapController::class, 'index']);
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/shops/{shop}', [ShopController::class, 'shop']);
+Route::get('/facilities/{facility}', [FacilityController::class, 'facility']);
