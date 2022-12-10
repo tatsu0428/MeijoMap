@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\FacilityController;
@@ -17,8 +18,24 @@ use App\Http\Controllers\ShopController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 Route::get('/', [MapController::class, 'index']);
 Route::get('/maps/{map}', [MapController::class, 'show']);
-Route::get('/facilities/{facility}', [FacilityController::class, 'facility']);
-Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'cafeteria']);
-Route::get('/shops/{shop}', [ShopController::class, 'shop']);
+Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
+Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'show']);
+Route::get('/shops/{shop}', [ShopController::class, 'show']);
+
+require __DIR__.'/auth.php';
