@@ -26,10 +26,11 @@
             <!-- Role -->
             <div class="mt-4">
                 <x-input-label for="role" :value="__('Role')" />
-                <select name="role[role_id]">
-                @foreach($roles as $role)
-                    <option value="{{ $role->role_id }}">{{ $role->role_name }}</option>
-                @endforeach
+                {{--<x-dropdown class="relative" x-data="{ open: false }">--}}
+                <select name="role_id">
+                    @foreach($roles as $role)
+                        <option value="{{ $role->role_id }}">{{ $role->role_name }}</option>
+                    @endforeach
                 </select>
             </div>
 

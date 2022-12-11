@@ -11,6 +11,8 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    
+    protected $primaryKey = 'user_id'; // 主キー名の変更
 
     /**
      * The attributes that are mass assignable.

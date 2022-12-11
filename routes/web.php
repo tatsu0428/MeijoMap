@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [MapController::class, 'index']);
+Route::get('/', [MapController::class, 'index'])->name('index');
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
 Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'show']);
