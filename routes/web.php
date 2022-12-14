@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\CafeteriaController;
 use App\Http\Controllers\ShopController;
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [MapController::class, 'index'])->name('index');
+Route::get('/users', [UserController::class, 'index']);
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
 Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'show']);

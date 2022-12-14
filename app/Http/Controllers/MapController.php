@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Map;
+use App\Models\User;
 use App\Models\Facility;
 use App\Models\Cafeteria;
 use App\Models\Shop;
@@ -10,9 +11,9 @@ use Illuminate\Http\Request;
 
 class MapController extends Controller
 {
-    public function index(Map $map)
+    public function index(Map $map, User $user)
     {
-        return view('maps/index')->with(['maps' => $map->get()]);  
+        return view('maps/index')->with(['maps' => $map->get(), 'users' => $user->get()]);  
     }
     
     public function show(Map $map, Facility $facility, Cafeteria $cafeteria, Shop $shop)
