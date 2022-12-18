@@ -11,9 +11,13 @@ use Illuminate\Http\Request;
 
 class MapController extends Controller
 {
-    public function index(Map $map, User $user)
+    public function index(Map $map, User $user, Facility $facility, Cafeteria $cafeteria, Shop $shop)
     {
-        return view('maps/index')->with(['maps' => $map->get(), 'users' => $user->get()]);  
+        return view('maps/index')->with(['maps' => $map->get(), 
+        'users' => $user->get(), 
+        'facilities' => $facility->get(),
+        'cafeterias' => $cafeteria->get(),
+        'shops' => $shop->get()]);  
     }
     
     public function show(Map $map, Facility $facility, Cafeteria $cafeteria, Shop $shop)

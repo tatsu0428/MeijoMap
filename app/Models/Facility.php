@@ -9,4 +9,13 @@ class Facility extends Model
 {
     use HasFactory;
     protected $primaryKey = 'facility_id'; // 主キー名の変更
+    
+    protected $fillable = [
+        'facility_name',
+        'floor',
+        'img_path',
+        'introduction',
+        'business_hours',
+        'map_id'
+    ];
 }

@@ -10,4 +10,13 @@ class Shop extends Model
     use HasFactory;
     protected $primaryKey = 'shop_id'; // 主キー名の変更
     
+    protected $fillable = [
+        'shop_name',
+        'floor',
+        'img_path',
+        'introduction',
+        'business_hours',
+        'map_id'
+    ];
+    
 }

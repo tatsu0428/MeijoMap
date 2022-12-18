@@ -35,9 +35,19 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [MapController::class, 'index'])->name('index');
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/facilities', [FacilityController::class, 'index']);
+Route::get('/facilities/create', [FacilityController::class, 'create']);
+Route::get('/cafeterias', [CafeteriaController::class, 'index']);
+Route::get('/cafeterias/create', [CafeteriaController::class, 'create']);
+Route::get('/shops', [ShopController::class, 'index']);
+Route::get('/shops/create', [ShopController::class, 'create']);
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
 Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'show']);
 Route::get('/shops/{shop}', [ShopController::class, 'show']);
+
+Route::post('/facilities', [FacilityController::class, 'store']);
+Route::post('/cafeterias', [CafeteriaController::class, 'store']);
+Route::post('/shops', [ShopController::class, 'store']);
 
 require __DIR__.'/auth.php';

@@ -31,10 +31,11 @@
                     </header>
                     @if (Auth::user()->role_id == 2)
                         <div class='admin'>
-                            <p class='user'>
-                                @csrf
-                                <a href="/users">Users</a>
-                            </p>
+                            @csrf
+                            <a href="/users">Users</a>
+                            <a href="/facilities">Facilities</a>
+                            <a href="/cafeterias">Cafeterias</a>
+                            <a href="/shops">Shops</a>
                         </div>
                     @endif
                 @else

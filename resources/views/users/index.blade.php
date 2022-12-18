@@ -9,14 +9,27 @@
     <body>
         <h1>Users</h1>
         <div class='users'>
-            @foreach ($users as $user)
-                <div class='user'>
-                    <p class='name'>{{ $user->name }}</p>
-                    <p class='role_id'>{{ $user->role_id }}</p>
-                    <p class='email'>{{ $user->email }}</p>
-                    <p class='password'>{{ $user->password }}</p>
-                </div>
-            @endforeach
+            <table border="1">
+                <tr>
+                    <th>名前</th>
+                    <th>役割ID</th>
+                    <th>Eメールアドレス</th>
+                    <th>パスワード</th>
+                </tr>
+                @foreach ($users as $user)
+                <tr>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->role_id }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->password }}</td>
+                </tr>
+                @endforeach
+            </table>
         </div>
+        
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
+        
     </body>
 </html>
