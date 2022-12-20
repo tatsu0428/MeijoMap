@@ -20,7 +20,7 @@
                 </tr>
                 @foreach ($shops as $shop)
                 <tr>
-                    <td>{{ $shop->shop_name }}</td>
+                    <td><a href="/shops/{{ $shop->shop_id }}">{{ $shop->shop_name }}</a></td>
                     <td>{{ $shop->map_id }}</td>
                     <td>{{ $shop->floor }}</td>
                     <td>{{ $shop->img_path }}</td>

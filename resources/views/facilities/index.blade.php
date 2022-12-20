@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Shops</title>
+        <title>Facilities</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -20,7 +20,7 @@
                 </tr>
                 @foreach ($facilities as $facility)
                 <tr>
-                    <td>{{ $facility->facility_name }}</td>
+                    <td><a href="/facilities/{{ $facility->facility_id }}">{{ $facility->facility_name }}</a></td>
                     <td>{{ $facility->map_id }}</td>
                     <td>{{ $facility->floor }}</td>
                     <td>{{ $facility->img_path }}</td>

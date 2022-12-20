@@ -21,7 +21,7 @@
                 </tr>
                 @foreach ($cafeterias as $cafeteria)
                 <tr>
-                    <td>{{ $cafeteria->cafeteria_name }}</td>
+                    <td><a href="/cafeterias/{{ $cafeteria->cafeteria_id }}">{{ $cafeteria->cafeteria_name }}</a></td>
                     <td>{{ $cafeteria->map_id }}</td>
                     <td>{{ $cafeteria->floor }}</td>
                     <td>{{ $cafeteria->img_path }}</td>

@@ -37,6 +37,7 @@ Route::get('/', [MapController::class, 'index'])->name('index');
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/facilities', [FacilityController::class, 'index']);
 Route::get('/facilities/create', [FacilityController::class, 'create']);
+Route::get('/facilities/{facility}/edit', [FacilityController::class, 'edit']);
 Route::get('/cafeterias', [CafeteriaController::class, 'index']);
 Route::get('/cafeterias/create', [CafeteriaController::class, 'create']);
 Route::get('/shops', [ShopController::class, 'index']);
@@ -49,5 +50,7 @@ Route::get('/shops/{shop}', [ShopController::class, 'show']);
 Route::post('/facilities', [FacilityController::class, 'store']);
 Route::post('/cafeterias', [CafeteriaController::class, 'store']);
 Route::post('/shops', [ShopController::class, 'store']);
+
+Route::put('/facilities/{facility}', [FacilityController::class, 'update']);
 
 require __DIR__.'/auth.php';

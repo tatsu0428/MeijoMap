@@ -25,6 +25,12 @@
             {{ $facility->business_hours }}
         </p>
         
+        @if (Auth::user()->role_id == 2)
+            <div class="edit">
+                <a href="/facilities/{{ $facility->facility_id }}/edit">edit</a>
+            </div>
+        @endif
+        
         <div class='facility_news'>
             <h2>ニュース</h2>
             @foreach ($facility_news as $selected_facility_news)
