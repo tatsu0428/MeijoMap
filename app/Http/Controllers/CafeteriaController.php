@@ -54,4 +54,11 @@ class CafeteriaController extends Controller
         
         return redirect('/cafeterias/');
     }
+    
+    public function update_congestion_situation(Request $request, Cafeteria $cafeteria)
+    {
+        $cafeteria->update(['congestion_situation' => $request->congestion_situation]);
+        
+        return redirect('/cafeterias/');
+    }
 }

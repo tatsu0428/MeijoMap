@@ -52,5 +52,6 @@ Route::post('/cafeterias', [CafeteriaController::class, 'store']);
 Route::post('/shops', [ShopController::class, 'store']);
 
 Route::put('/facilities/{facility}', [FacilityController::class, 'update']);
+Route::put('/cafeterias/{cafeteria}/congestion_situation', [CafeteriaController::class, 'update_congestion_situation']);
 
 require __DIR__.'/auth.php';

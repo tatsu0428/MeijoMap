@@ -18,6 +18,7 @@
                     <th>紹介文</th>
                     <th>営業時間</th>
                     <th>混雑状況</th>
+                    <th>更新</th>
                 </tr>
                 @foreach ($cafeterias as $cafeteria)
                 <tr>
@@ -27,7 +28,32 @@
                     <td>{{ $cafeteria->img_path }}</td>
                     <td>{{ $cafeteria->introduction }}</td>
                     <td>{{ $cafeteria->business_hours }}</td>
-                    <td>{{ $cafeteria->congestion_situation }}</td>
+                    <form action="/cafeterias/{{ $cafeteria->cafeteria_id }}/congestion_situation" method="POST">
+	                    @csrf
+	                    @method('PUT')
+	                    <td>
+                            <select name="congestion_situation">
+                                    @if ($cafeteria->congestion_situation == "空いている")
+                                        <option selected>空いている</option>
+                                        <option>混んでいる</option>
+                                        <option>満席</option>
+                                    @elseif ($cafeteria->congestion_situation == "混んでいる")
+                                        <option>空いている</option>
+                                        <option selected>混んでいる</option>
+                                        <option>満席</option>
+                                    @elseif ($cafeteria->congestion_situation == "満席")
+                                        <option>空いている</option>
+                                        <option>混んでいる</option>
+                                        <option selected>満席</option>
+                                    @else
+                                        <option>空いている</option>
+                                        <option>混んでいる</option>
+                                        <option>満席</option>
+                                    @endif
+                            </select>
+                        </td>
+                        <td><input type="submit" value="更新"/></td>
+	                </form>
                 </tr>
                 @endforeach
             </table>

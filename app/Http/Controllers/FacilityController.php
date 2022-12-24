@@ -71,7 +71,7 @@ class FacilityController extends Controller
         // 営業時間を整形して取得
         $business_hours = $request->opening_time . '〜' . $request->closing_time;
         
-        $facility = Facility::create([
+        $facility->update([
             'facility_name' => $request->facility_name,
             'floor' => $request->facility_floor,
             'img_path' => $image_path,
