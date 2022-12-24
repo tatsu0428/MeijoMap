@@ -54,4 +54,6 @@ Route::post('/shops', [ShopController::class, 'store']);
 Route::put('/facilities/{facility}', [FacilityController::class, 'update']);
 Route::put('/cafeterias/{cafeteria}/congestion_situation', [CafeteriaController::class, 'update_congestion_situation']);
 
+Route::delete('/facilities/{facility}', [FacilityController::class,'delete']);
+
 require __DIR__.'/auth.php';

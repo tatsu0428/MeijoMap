@@ -82,5 +82,12 @@ class FacilityController extends Controller
 
         return redirect('/facilities/' . $facility->facility_id);
     }
+    
+    public function delete(Facility $facility)
+    {
+        $facility->delete();
+        
+        return redirect('/facilities/');
+    }
 
 }

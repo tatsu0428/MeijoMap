@@ -43,7 +43,7 @@
             @endforeach
         </div>
         <div class="footer">
-            <a href="/facilities/">戻る</a>
+            <a href="javascript:history.back()">戻る</a>
         </div>
     </body>
 </html>

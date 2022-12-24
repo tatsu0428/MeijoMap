@@ -17,6 +17,7 @@
                     <th>画像パス</th>
                     <th>紹介文</th>
                     <th>営業時間</th>
+                    <th>削除</th>
                 </tr>
                 @foreach ($facilities as $facility)
                 <tr>
@@ -26,6 +27,13 @@
                     <td>{{ $facility->img_path }}</td>
                     <td>{{ $facility->introduction }}</td>
                     <td>{{ $facility->business_hours }}</td>
+                    <form action="/facilities/{{ $facility->facility_id }}" id="form_{{ $facility->facility_id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <td>
+                            <button type="button" onclick="deleteFacility({{ $facility->facility_id }})">削除</button> 
+                        </td>
+                    </form>
                 </tr>
                 @endforeach
             </table>
@@ -39,5 +47,16 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        
+        <script>
+            function deleteFacility(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
+        
     </body>
 </html>
