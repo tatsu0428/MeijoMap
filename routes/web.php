@@ -35,13 +35,19 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [MapController::class, 'index'])->name('index');
 Route::get('/users', [UserController::class, 'index']);
+
 Route::get('/facilities', [FacilityController::class, 'index']);
 Route::get('/facilities/create', [FacilityController::class, 'create']);
 Route::get('/facilities/{facility}/edit', [FacilityController::class, 'edit']);
+
 Route::get('/cafeterias', [CafeteriaController::class, 'index']);
 Route::get('/cafeterias/create', [CafeteriaController::class, 'create']);
+Route::get('/cafeterias/{cafeteria}/edit', [CafeteriaController::class, 'edit']);
+
 Route::get('/shops', [ShopController::class, 'index']);
 Route::get('/shops/create', [ShopController::class, 'create']);
+Route::get('/shops/{shop}/edit', [ShopController::class, 'edit']);
+
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
 Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'show']);
@@ -52,8 +58,12 @@ Route::post('/cafeterias', [CafeteriaController::class, 'store']);
 Route::post('/shops', [ShopController::class, 'store']);
 
 Route::put('/facilities/{facility}', [FacilityController::class, 'update']);
+Route::put('/cafeterias/{cafeteria}', [CafeteriaController::class, 'update']);
+Route::put('/shops/{shop}', [ShopController::class, 'update']);
 Route::put('/cafeterias/{cafeteria}/congestion_situation', [CafeteriaController::class, 'update_congestion_situation']);
 
 Route::delete('/facilities/{facility}', [FacilityController::class,'delete']);
+Route::delete('/cafeterias/{cafeteria}', [CafeteriaController::class,'delete']);
+Route::delete('/shops/{shop}', [ShopController::class,'delete']);
 
 require __DIR__.'/auth.php';

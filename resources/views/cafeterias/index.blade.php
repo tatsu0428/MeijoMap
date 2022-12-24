@@ -19,6 +19,7 @@
                     <th>営業時間</th>
                     <th>混雑状況</th>
                     <th>更新</th>
+                    <th>削除</th>
                 </tr>
                 @foreach ($cafeterias as $cafeteria)
                 <tr>
@@ -54,6 +55,13 @@
                         </td>
                         <td><input type="submit" value="更新"/></td>
 	                </form>
+	                <form action="/cafeterias/{{ $cafeteria->cafeteria_id }}" id="form_{{ $cafeteria->cafeteria_id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <td>
+                            <button type="button" onclick="deleteCafeteria({{ $cafeteria->cafeteria_id }})">削除</button> 
+                        </td>
+                    </form>
                 </tr>
                 @endforeach
             </table>
@@ -67,5 +75,16 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        
+        <script>
+            function deleteCafeteria(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
+        
     </body>
 </html>

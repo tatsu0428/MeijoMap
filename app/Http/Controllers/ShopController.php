@@ -54,4 +54,42 @@ class ShopController extends Controller
         
         return redirect('/shops/');
     }
+    
+    public function edit(Shop $shop, Map $map)
+    {
+        return view('shops/edit')->with(['shop' => $shop, 'maps' => $map->get()]);
+    }
+    
+    public function update(Request $request, Shop $shop)
+    {
+        // ディレクトリ名
+        $dir = 'shop_img';
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+        // ファイル情報をDBに保存
+        $image_path = 'storage/' . $dir . '/' . $file_name;
+        
+        // 営業時間を整形して取得
+        $business_hours = $request->opening_time . '〜' . $request->closing_time;
+        
+        $shop->update([
+            'shop_name' => $request->shop_name,
+            'floor' => $request->shop_floor,
+            'img_path' => $image_path,
+            'introduction' => $request->introduction,
+            'business_hours' => $business_hours,
+            'map_id' => $request->map_id,
+        ]);
+
+        return redirect('/shops/' . $shop->shop_id);
+    }
+    
+    public function delete(Shop $shop)
+    {
+        $shop->delete();
+        
+        return redirect('/shops/');
+    }
 }

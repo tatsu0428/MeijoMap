@@ -30,6 +30,12 @@
             {{ $cafeteria->congestion_situation }}
         </p>
         
+        @if (Auth::user()->role_id == 2)
+            <div class="edit">
+                <a href="/cafeterias/{{ $cafeteria->cafeteria_id }}/edit">edit</a>
+            </div>
+        @endif
+        
         <div class='menus'>
             <h2>おすすめメニュー</h2>
             @foreach ($menus as $menu)
@@ -54,5 +60,10 @@
                 </div>
             @endforeach
         </div>
+        
+        <div class="footer">
+            <a href="/maps/{{ $cafeteria->map_id }}">戻る</a>
+        </div>
+        
     </body>
 </html>

@@ -42,8 +42,10 @@
                 </div>
             @endforeach
         </div>
+        
         <div class="footer">
-            <a href="javascript:history.back()">戻る</a>
+            <a href="/maps/{{ $facility->map_id }}">戻る</a>
         </div>
+        
     </body>
 </html>

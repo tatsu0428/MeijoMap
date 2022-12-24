@@ -2,24 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Edit Cafeteria</title>
+        <title>Edit Shop</title>
     </head>
     <body>
-        <h1>Edit Cafeteria</h1>
-        <form action="/cafeterias/{{ $cafeteria->cafeteria_id }}" method="POST" enctype="multipart/form-data">
+        <h1>Edit Shop</h1>
+        <form action="/shops/{{ $shop->shop_id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             
-            <div class="cafeteria_name">
-                <h2>Cafeteria Name</h2>
-                <input type="text" name="cafeteria_name" value="{{ $cafeteria->cafeteria_name }}"/>
+            <div class="shop_name">
+                <h2>Shop Name</h2>
+                <input type="text" name="shop_name" value="{{ $shop->shop_name }}"/>
             </div>
             
             <div class="map_id">
                 <h2>Building Name</h2>
                 <select name="map_id">
                     @foreach($maps as $map)
-                        @if ($map->map_id == $cafeteria->map_id)
+                        @if ($map->map_id == $shop->map_id)
                             <option value="{{ $map->map_id }}" selected>{{ $map->building_name }}</option>
                         @else
                             <option value="{{ $map->map_id }}">{{ $map->building_name }}</option>
@@ -28,18 +28,18 @@
                 </select>
             </div>
             
-            <div class="cafeteria_floor">
+            <div class="shop_floor">
                 <h2>Floor</h2>
-                <select name="cafeteria_floor">
+                <select name="shop_floor">
                     @for ($i = 0; $i < 16; $i++)
                         @if ($i == 0)
-                            @if ($cafeteria->floor == "B1F")
+                            @if ($shop->floor == "B1F")
                                 <option selected>B1F</option>
                             @else
                                 <option>B1F</option>
                             @endif
                         @else
-                            @if ($cafeteria->floor == ($i . "F"))
+                            @if ($shop->floor == ($i . "F"))
                                 
                                 <option selected>{{$i . "F"}}</option>
                             @else
@@ -57,7 +57,7 @@
             
             <div class="introduction">
                 <h2>Introduction</h2>
-                <textarea name="introduction">{{ $cafeteria->introduction }}</textarea>
+                <textarea name="introduction">{{ $shop->introduction }}</textarea>
             </div>
             
             <div class="business_hours">
@@ -72,7 +72,7 @@
         </form>
         
         <div class="footer">
-            <a href="/cafeterias/{{ $cafeteria->cafeteria_id }}">戻る</a>
+            <a href="/shops/{{ $shop->shop_id }}">戻る</a>
         </div>
         
     </body>

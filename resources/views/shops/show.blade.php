@@ -25,6 +25,12 @@
             {{ $shop->business_hours }}
         </p>
         
+        @if (Auth::user()->role_id == 2)
+            <div class="edit">
+                <a href="/shops/{{ $shop->shop_id }}/edit">edit</a>
+            </div>
+        @endif
+        
         <div class='items'>
             <h2>おすすめ商品</h2>
             @foreach ($items as $item)
@@ -49,5 +55,10 @@
                 </div>
             @endforeach
         </div>
+        
+        <div class="footer">
+            <a href="/maps/{{ $shop->map_id }}">戻る</a>
+        </div>
+        
     </body>
 </html>

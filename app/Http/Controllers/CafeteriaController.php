@@ -55,9 +55,47 @@ class CafeteriaController extends Controller
         return redirect('/cafeterias/');
     }
     
+    public function edit(Cafeteria $cafeteria, Map $map)
+    {
+        return view('cafeterias/edit')->with(['cafeteria' => $cafeteria, 'maps' => $map->get()]);
+    }
+    
+    public function update(Request $request, Cafeteria $cafeteria)
+    {
+        // ディレクトリ名
+        $dir = 'cafeteria_img';
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+        // ファイル情報をDBに保存
+        $image_path = 'storage/' . $dir . '/' . $file_name;
+        
+        // 営業時間を整形して取得
+        $business_hours = $request->opening_time . '〜' . $request->closing_time;
+        
+        $cafeteria->update([
+            'cafeteria_img_name' => $request->cafeteria_img_name,
+            'floor' => $request->cafeteria_floor,
+            'img_path' => $image_path,
+            'introduction' => $request->introduction,
+            'business_hours' => $business_hours,
+            'map_id' => $request->map_id,
+        ]);
+
+        return redirect('/cafeterias/' . $cafeteria->cafeteria_id);
+    }
+    
     public function update_congestion_situation(Request $request, Cafeteria $cafeteria)
     {
         $cafeteria->update(['congestion_situation' => $request->congestion_situation]);
+        
+        return redirect('/cafeterias/');
+    }
+    
+    public function delete(Cafeteria $cafeteria)
+    {
+        $cafeteria->delete();
         
         return redirect('/cafeterias/');
     }
