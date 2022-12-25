@@ -45,6 +45,11 @@
                     </h3>
                     <p class='menu_price'>{{ $menu->menu_price }}</p>
                     <p class='sold_out'>{{ $menu->sold_out }}</p>
+                    @if (Auth::user()->role_id == 2)
+                        <div class="edit">
+                            <a href="/menus/{{ $cafeteria->cafeteria_id }}/{{ $menu->menu_id }}/edit">edit</a>
+                        </div>
+                    @endif
                 </div>
             @endforeach
             

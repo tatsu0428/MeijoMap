@@ -35,4 +35,30 @@ class MenuController extends Controller
         
         return redirect('/cafeterias/' . $cafeteria->cafeteria_id);
     }
+    
+    public function edit(Cafeteria $cafeteria, Menu $menu)
+    {
+        return view('menus/edit')->with(['cafeteria' => $cafeteria, 'menu' => $menu]);
+    }
+    
+    public function update(Request $request, Cafeteria $cafeteria, Menu $menu)
+    {
+        $image = $request->file('image');
+        
+        $image_path = $menu->img_path;
+        
+        if (isset($image)) {
+            $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
+        $menu->update([
+            'menu_name' => $request->menu_name,
+            'img_path' => $image_path,
+            'menu_price' => $request->menu_price,
+            'sold_out' => $request->sold_out,
+        ]);
+
+        return redirect('/cafeterias/' . $cafeteria->cafeteria_id);
+    }
+    
 }

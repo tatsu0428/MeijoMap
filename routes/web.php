@@ -56,6 +56,7 @@ Route::get('/cafeteria_news/{cafeteria}/create', [CafeteriaNewsController::class
 Route::get('/cafeteria_news/{cafeteria_news}/edit', [CafeteriaNewsController::class, 'edit']);
 
 Route::get('/menus/{cafeteria}/create', [MenuController::class, 'create']);
+Route::get('/menus/{cafeteria}/{menu}/edit', [MenuController::class, 'edit']);
 
 Route::get('/shops', [ShopController::class, 'index']);
 Route::get('/shops/create', [ShopController::class, 'create']);
@@ -65,6 +66,7 @@ Route::get('/shop_news/{shop}/create', [ShopNewsController::class, 'create']);
 Route::get('/shop_news/{shop_news}/edit', [ShopNewsController::class, 'edit']);
 
 Route::get('/items/{shop}/create', [ItemController::class, 'create']);
+Route::get('/items/{shop}/{item}/edit', [ItemController::class, 'edit']);
 
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
@@ -93,6 +95,9 @@ Route::put('/cafeterias/{cafeteria}/congestion_situation', [CafeteriaController:
 Route::put('/facility_news/{facility_news}', [FacilityNewsController::class, 'update']);
 Route::put('/cafeteria_news/{cafeteria_news}', [CafeteriaNewsController::class, 'update']);
 Route::put('/shop_news/{shop_news}', [ShopNewsController::class, 'update']);
+
+Route::put('/menus/{cafeteria}/{menu}', [MenuController::class, 'update']);
+Route::put('/items/{shop}/{item}', [ItemController::class, 'update']);
 
 Route::delete('/facilities/{facility}', [FacilityController::class,'delete']);
 Route::delete('/facility_news/{facility_news}', [FacilityNewsController::class,'delete']);

@@ -40,6 +40,11 @@
                     </h3>
                     <p class='item_price'>{{ $item->item_price }}</p>
                     <p class='sold_out'>{{ $item->sold_out }}</p>
+                    @if (Auth::user()->role_id == 2)
+                        <div class="edit">
+                            <a href="/items/{{ $shop->shop_id }}/{{ $item->item_id }}/edit">edit</a>
+                        </div>
+                    @endif
                 </div>
             @endforeach
             

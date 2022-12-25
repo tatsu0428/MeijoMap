@@ -35,4 +35,29 @@ class ItemController extends Controller
         
         return redirect('/shops/' . $shop->shop_id);
     }
+    
+    public function edit(Shop $shop, Item $item)
+    {
+        return view('items/edit')->with(['shop' => $shop, 'item' => $item]);
+    }
+    
+    public function update(Request $request, Shop $shop, Item $item)
+    {
+        $image = $request->file('image');
+        
+        $image_path = $item->img_path;
+        
+        if (isset($image)) {
+            $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
+        $item->update([
+            'menu_name' => $request->menu_name,
+            'img_path' => $image_path,
+            'menu_price' => $request->menu_price,
+            'sold_out' => $request->sold_out,
+        ]);
+
+        return redirect('/shops/' . $shop->shop_id);
+    }
 }
