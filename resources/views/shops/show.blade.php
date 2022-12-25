@@ -42,6 +42,13 @@
                     <p class='sold_out'>{{ $item->sold_out }}</p>
                 </div>
             @endforeach
+            
+            @if (Auth::user()->role_id == 2)
+                <div class="create">
+                    <a href="/items/{{ $shop->shop_id }}/create">create</a>
+                </div>
+            @endif
+            
         </div>
         
         <div class='shop_news'>

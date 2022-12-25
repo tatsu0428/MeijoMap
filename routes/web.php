@@ -8,8 +8,10 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\FacilityNewsController;
 use App\Http\Controllers\CafeteriaController;
 use App\Http\Controllers\CafeteriaNewsController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopNewsController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,12 +55,16 @@ Route::get('/cafeterias/{cafeteria}/edit', [CafeteriaController::class, 'edit'])
 Route::get('/cafeteria_news/{cafeteria}/create', [CafeteriaNewsController::class, 'create']);
 Route::get('/cafeteria_news/{cafeteria_news}/edit', [CafeteriaNewsController::class, 'edit']);
 
+Route::get('/menus/{cafeteria}/create', [MenuController::class, 'create']);
+
 Route::get('/shops', [ShopController::class, 'index']);
 Route::get('/shops/create', [ShopController::class, 'create']);
 Route::get('/shops/{shop}/edit', [ShopController::class, 'edit']);
 
 Route::get('/shop_news/{shop}/create', [ShopNewsController::class, 'create']);
 Route::get('/shop_news/{shop_news}/edit', [ShopNewsController::class, 'edit']);
+
+Route::get('/items/{shop}/create', [ItemController::class, 'create']);
 
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
@@ -75,6 +81,9 @@ Route::post('/shops', [ShopController::class, 'store']);
 Route::post('/facilities/{facility}', [FacilityNewsController::class, 'store']);
 Route::post('/cafeterias/{cafeteria}', [CafeteriaNewsController::class, 'store']);
 Route::post('/shops/{shop}', [ShopNewsController::class, 'store']);
+
+Route::post('/cafeterias/{cafeteria}/menu', [MenuController::class, 'store']);
+Route::post('/shops/{shop}/item', [ItemController::class, 'store']);
 
 Route::put('/facilities/{facility}', [FacilityController::class, 'update']);
 Route::put('/cafeterias/{cafeteria}', [CafeteriaController::class, 'update']);

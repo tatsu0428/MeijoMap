@@ -47,6 +47,13 @@
                     <p class='sold_out'>{{ $menu->sold_out }}</p>
                 </div>
             @endforeach
+            
+            @if (Auth::user()->role_id == 2)
+                <div class="create">
+                    <a href="/menus/{{ $cafeteria->cafeteria_id }}/create">create</a>
+                </div>
+            @endif
+            
         </div>
         
         <div class='cafeteria_news'>
