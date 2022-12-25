@@ -40,6 +40,30 @@ class FacilityNewsController extends Controller
         return redirect('/facilities/' . $facility->facility_id);
     }
     
+    public function edit(FacilityNews $facility_news)
+    {
+        return view('facility_news/edit')->with(['facility_news' => $facility_news]);
+    }
+    
+    public function update(Request $request, FacilityNews $facility_news)
+    {
+        $image = $request->file('image');
+        
+        $image_path = $facility_news->img_path;
+        
+        if (isset($image)) {
+            $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
+        $facility_news->update([
+            'news_title' => $request->news_title,
+            'news_content' => $request->news_content,
+            'img_path' => $image_path,
+        ]);
+
+        return redirect('/facility_news/' . $facility_news->news_id);
+    }
+    
     public function delete(FacilityNews $facility_news)
     {
         $facility_news->delete();

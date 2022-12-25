@@ -25,6 +25,12 @@
             {{ $cafeteria_news->img_path }}
         </p>
         
+        @if (Auth::user()->role_id == 2)
+            <div class="edit">
+                <a href="/cafeteria_news/{{ $cafeteria_news->news_id }}/edit">edit</a>
+            </div>
+        @endif
+            
         <div class='footer'>
             <a href="/cafeterias/{{ $cafeteria_news->cafeteria_id }}">戻る</a>
         </div>

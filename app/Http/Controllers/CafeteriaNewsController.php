@@ -40,6 +40,30 @@ class CafeteriaNewsController extends Controller
         return redirect('/cafeterias/' . $cafeteria->cafeteria_id);
     }
     
+    public function edit(CafeteriaNews $cafeteria_news)
+    {
+        return view('cafeteria_news/edit')->with(['cafeteria_news' => $cafeteria_news]);
+    }
+    
+    public function update(Request $request, CafeteriaNews $cafeteria_news)
+    {
+        $image = $request->file('image');
+        
+        $image_path = $cafeteria_news->img_path;
+        
+        if (isset($image)) {
+            $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
+        $cafeteria_news->update([
+            'news_title' => $request->news_title,
+            'news_content' => $request->news_content,
+            'img_path' => $image_path,
+        ]);
+
+        return redirect('/cafeteria_news/' . $cafeteria_news->news_id);
+    }
+    
     public function delete(CafeteriaNews $cafeteria_news)
     {
         $cafeteria_news->delete();

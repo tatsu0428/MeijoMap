@@ -54,7 +54,7 @@
             </table>
             
             @if (Auth::user()->role_id == 2)
-                <div class="edit">
+                <div class="create">
                     <a href="/facility_news/{{ $facility->facility_id }}/create">create</a>
                 </div>
             @endif

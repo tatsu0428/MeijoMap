@@ -40,6 +40,30 @@ class ShopNewsController extends Controller
         return redirect('/shops/' . $shop->shop_id);
     }
     
+    public function edit(ShopNews $shop_news)
+    {
+        return view('shop_news/edit')->with(['shop_news' => $shop_news]);
+    }
+    
+    public function update(Request $request, ShopNews $shop_news)
+    {
+        $image = $request->file('image');
+        
+        $image_path = $shop_news->img_path;
+        
+        if (isset($image)) {
+            $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
+        $shop_news->update([
+            'news_title' => $request->news_title,
+            'news_content' => $request->news_content,
+            'img_path' => $image_path,
+        ]);
+
+        return redirect('/shop_news/' . $shop_news->news_id);
+    }
+    
     public function delete(ShopNews $shop_news)
     {
         $shop_news->delete();

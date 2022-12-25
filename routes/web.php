@@ -44,18 +44,21 @@ Route::get('/facilities/create', [FacilityController::class, 'create']);
 Route::get('/facilities/{facility}/edit', [FacilityController::class, 'edit']);
 
 Route::get('/facility_news/{facility}/create', [FacilityNewsController::class, 'create']);
+Route::get('/facility_news/{facility_news}/edit', [FacilityNewsController::class, 'edit']);
 
 Route::get('/cafeterias', [CafeteriaController::class, 'index']);
 Route::get('/cafeterias/create', [CafeteriaController::class, 'create']);
 Route::get('/cafeterias/{cafeteria}/edit', [CafeteriaController::class, 'edit']);
 
 Route::get('/cafeteria_news/{cafeteria}/create', [CafeteriaNewsController::class, 'create']);
+Route::get('/cafeteria_news/{cafeteria_news}/edit', [CafeteriaNewsController::class, 'edit']);
 
 Route::get('/shops', [ShopController::class, 'index']);
 Route::get('/shops/create', [ShopController::class, 'create']);
 Route::get('/shops/{shop}/edit', [ShopController::class, 'edit']);
 
 Route::get('/shop_news/{shop}/create', [ShopNewsController::class, 'create']);
+Route::get('/shop_news/{shop_news}/edit', [ShopNewsController::class, 'edit']);
 
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
@@ -77,6 +80,10 @@ Route::put('/facilities/{facility}', [FacilityController::class, 'update']);
 Route::put('/cafeterias/{cafeteria}', [CafeteriaController::class, 'update']);
 Route::put('/shops/{shop}', [ShopController::class, 'update']);
 Route::put('/cafeterias/{cafeteria}/congestion_situation', [CafeteriaController::class, 'update_congestion_situation']);
+
+Route::put('/facility_news/{facility_news}', [FacilityNewsController::class, 'update']);
+Route::put('/cafeteria_news/{cafeteria_news}', [CafeteriaNewsController::class, 'update']);
+Route::put('/shop_news/{shop_news}', [ShopNewsController::class, 'update']);
 
 Route::delete('/facilities/{facility}', [FacilityController::class,'delete']);
 Route::delete('/facility_news/{facility_news}', [FacilityNewsController::class,'delete']);
