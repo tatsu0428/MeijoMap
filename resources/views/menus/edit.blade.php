@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Edit Menu</h1>
-        <form action="/menus/{{ $cafeteria->cafeteria_id }}/{{ $menu->menu_id }}" method="POST" enctype="multipart/form-data">
+        <form action="/menus/{{ $menu->menu_id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             

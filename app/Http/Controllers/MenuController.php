@@ -41,7 +41,7 @@ class MenuController extends Controller
         return view('menus/edit')->with(['cafeteria' => $cafeteria, 'menu' => $menu]);
     }
     
-    public function update(Request $request, Cafeteria $cafeteria, Menu $menu)
+    public function update(Request $request, Menu $menu)
     {
         $image = $request->file('image');
         
@@ -58,7 +58,7 @@ class MenuController extends Controller
             'sold_out' => $request->sold_out,
         ]);
 
-        return redirect('/cafeterias/' . $cafeteria->cafeteria_id);
+        return redirect('/cafeterias/' . $menu->cafeteria_id);
     }
     
     public function delete(Menu $menu)

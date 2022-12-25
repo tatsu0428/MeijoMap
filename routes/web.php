@@ -96,8 +96,8 @@ Route::put('/facility_news/{facility_news}', [FacilityNewsController::class, 'up
 Route::put('/cafeteria_news/{cafeteria_news}', [CafeteriaNewsController::class, 'update']);
 Route::put('/shop_news/{shop_news}', [ShopNewsController::class, 'update']);
 
-Route::put('/menus/{cafeteria}/{menu}', [MenuController::class, 'update']);
-Route::put('/items/{shop}/{item}', [ItemController::class, 'update']);
+Route::put('/menus/{menu}', [MenuController::class, 'update']);
+Route::put('/items/{item}', [ItemController::class, 'update']);
 
 Route::delete('/facilities/{facility}', [FacilityController::class,'delete']);
 Route::delete('/facility_news/{facility_news}', [FacilityNewsController::class,'delete']);

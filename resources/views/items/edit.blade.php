@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Edit Item</h1>
-        <form action="/items/{{ $shop->shop_id }}/{{ $item->item_id }}" method="POST" enctype="multipart/form-data">
+        <form action="/items/{{ $item->item_id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             

@@ -41,7 +41,7 @@ class ItemController extends Controller
         return view('items/edit')->with(['shop' => $shop, 'item' => $item]);
     }
     
-    public function update(Request $request, Shop $shop, Item $item)
+    public function update(Request $request, Item $item)
     {
         $image = $request->file('image');
         
@@ -52,13 +52,13 @@ class ItemController extends Controller
         }
         
         $item->update([
-            'menu_name' => $request->menu_name,
+            'item_name' => $request->item_name,
             'img_path' => $image_path,
-            'menu_price' => $request->menu_price,
+            'item_price' => $request->item_price,
             'sold_out' => $request->sold_out,
         ]);
 
-        return redirect('/shops/' . $shop->shop_id);
+        return redirect('/shops/' . $item->shop_id);
     }
     
     public function delete(Item $item)
