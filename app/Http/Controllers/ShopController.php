@@ -30,14 +30,9 @@ class ShopController extends Controller
     
     public function store(Request $request, Shop $shop)
     {
-        // ディレクトリ名
-        $dir = 'shop_img';
-        // アップロードされたファイル名を取得
-        $file_name = $request->file('image')->getClientOriginalName();
-        // 取得したファイル名で保存
-        $request->file('image')->storeAs('public/' . $dir, $file_name);
-        // ファイル情報をDBに保存
-        $image_path = 'storage/' . $dir . '/' . $file_name;
+        $image = $request->file('image');
+        
+        $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
         
         // 営業時間を整形して取得
         $business_hours = $request->opening_time . '〜' . $request->closing_time;
@@ -62,14 +57,13 @@ class ShopController extends Controller
     
     public function update(Request $request, Shop $shop)
     {
-        // ディレクトリ名
-        $dir = 'shop_img';
-        // アップロードされたファイル名を取得
-        $file_name = $request->file('image')->getClientOriginalName();
-        // 取得したファイル名で保存
-        $request->file('image')->storeAs('public/' . $dir, $file_name);
-        // ファイル情報をDBに保存
-        $image_path = 'storage/' . $dir . '/' . $file_name;
+        $image = $request->file('image');
+        
+        $image_path = $shop->img_path;
+        
+        if (isset($image)) {
+            $image_path = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
         
         // 営業時間を整形して取得
         $business_hours = $request->opening_time . '〜' . $request->closing_time;
