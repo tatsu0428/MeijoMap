@@ -49,6 +49,13 @@
                         <div class="edit">
                             <a href="/menus/{{ $cafeteria->cafeteria_id }}/{{ $menu->menu_id }}/edit">edit</a>
                         </div>
+                        <form action="/menus/{{ $menu->menu_id }}" id="form_{{ $menu->menu_id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <td>
+                                <button type="button" onclick="deleteMenu({{ $menu->menu_id }})">削除</button>
+                            </td>
+                        </form>
                     @endif
                 </div>
             @endforeach
@@ -97,6 +104,15 @@
         
         <script>
             function deleteCafeteriaNews(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
+        <script>
+            function deleteMenu(id) {
                 'use strict'
 
                 if (confirm('削除すると復元できません。\n本当に削除しますか？')) {

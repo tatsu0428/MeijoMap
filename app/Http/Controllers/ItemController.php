@@ -60,4 +60,11 @@ class ItemController extends Controller
 
         return redirect('/shops/' . $shop->shop_id);
     }
+    
+    public function delete(Item $item)
+    {
+        $item->delete();
+        
+        return redirect('/shops/' . $item->shop_id);
+    }
 }

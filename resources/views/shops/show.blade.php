@@ -44,6 +44,13 @@
                         <div class="edit">
                             <a href="/items/{{ $shop->shop_id }}/{{ $item->item_id }}/edit">edit</a>
                         </div>
+                        <form action="/items/{{ $item->item_id }}" id="form_{{ $item->item_id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <td>
+                                <button type="button" onclick="deleteItem({{ $item->item_id }})">削除</button> 
+                            </td>
+                        </form>
                     @endif
                 </div>
             @endforeach
@@ -92,6 +99,15 @@
         
         <script>
             function deleteShopNews(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
+        <script>
+            function deleteItem(id) {
                 'use strict'
 
                 if (confirm('削除すると復元できません。\n本当に削除しますか？')) {

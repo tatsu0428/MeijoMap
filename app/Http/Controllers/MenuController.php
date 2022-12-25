@@ -61,4 +61,11 @@ class MenuController extends Controller
         return redirect('/cafeterias/' . $cafeteria->cafeteria_id);
     }
     
+    public function delete(Menu $menu)
+    {
+        $menu->delete();
+        
+        return redirect('/cafeterias/' . $menu->cafeteria_id);
+    }
+    
 }
