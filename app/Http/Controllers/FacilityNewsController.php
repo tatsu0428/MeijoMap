@@ -11,4 +11,11 @@ class FacilityNewsController extends Controller
     {
         return view('facility_news/show')->with(['facility_news' => $facility_news]);
     }
+    
+    public function delete(FacilityNews $facility_news)
+    {
+        $facility_news->delete();
+        
+        return redirect('/facilities/' . $facility_news->facility_id);
+    }
 }

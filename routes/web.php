@@ -69,7 +69,10 @@ Route::put('/shops/{shop}', [ShopController::class, 'update']);
 Route::put('/cafeterias/{cafeteria}/congestion_situation', [CafeteriaController::class, 'update_congestion_situation']);
 
 Route::delete('/facilities/{facility}', [FacilityController::class,'delete']);
+Route::delete('/facility_news/{facility_news}', [FacilityNewsController::class,'delete']);
 Route::delete('/cafeterias/{cafeteria}', [CafeteriaController::class,'delete']);
+Route::delete('/cafeteria_news/{cafeteria_news}', [CafeteriaNewsController::class,'delete']);
 Route::delete('/shops/{shop}', [ShopController::class,'delete']);
+Route::delete('/shop_news/{shop_news}', [ShopNewsController::class,'delete']);
 
 require __DIR__.'/auth.php';

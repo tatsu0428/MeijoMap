@@ -11,4 +11,11 @@ class ShopNewsController extends Controller
     {
         return view('shop_news/show')->with(['shop_news' => $shop_news]);
     }
+    
+    public function delete(ShopNews $shop_news)
+    {
+        $shop_news->delete();
+        
+        return redirect('/shops/' . $shop_news->shop_id);
+    }
 }

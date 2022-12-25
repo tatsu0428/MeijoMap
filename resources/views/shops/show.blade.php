@@ -55,6 +55,13 @@
                                 {{ $selected_shop_news->news_title }}
                             </a>
                         </td>
+                        <form action="/shop_news/{{ $selected_shop_news->news_id }}" id="form_{{ $selected_shop_news->news_id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <td>
+                                <button type="button" onclick="deleteShopNews({{ $selected_shop_news->news_id }})">削除</button> 
+                            </td>
+                        </form>
                     </tr>
                 @endforeach
             </table>
@@ -63,6 +70,16 @@
         <div class="footer">
             <a href="/maps/{{ $shop->map_id }}">戻る</a>
         </div>
+        
+        <script>
+            function deleteShopNews(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
         
     </body>
 </html>
