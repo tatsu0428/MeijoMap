@@ -46,14 +46,18 @@
         
         <div class='shop_news'>
             <h2>ニュース</h2>
-            @foreach ($shop_news as $selected_shop_news)
-                <div class='selected_shop_news'>
-                    <h3 class='selected_shop_news_title'>
-                        {{ $selected_shop_news->news_title }}
-                    </h3>
-                    <p class='selected_shop_news_content'>{{ $selected_shop_news->news_content }}</p>
-                </div>
-            @endforeach
+            <table>
+                @foreach ($shop_news as $selected_shop_news)
+                    <tr>
+                        <td>{{ $selected_shop_news->created_at }}</td>
+                        <td>
+                            <a href="/shop_news/{{ $selected_shop_news->news_id }}">
+                                {{ $selected_shop_news->news_title }}
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
         </div>
         
         <div class="footer">

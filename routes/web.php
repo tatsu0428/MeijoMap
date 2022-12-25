@@ -5,8 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\FacilityNewsController;
 use App\Http\Controllers\CafeteriaController;
+use App\Http\Controllers\CafeteriaNewsController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShopNewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +53,11 @@ Route::get('/shops/{shop}/edit', [ShopController::class, 'edit']);
 
 Route::get('/maps/{map}', [MapController::class, 'show']);
 Route::get('/facilities/{facility}', [FacilityController::class, 'show']);
+Route::get('/facility_news/{facility_news}', [FacilityNewsController::class, 'show']);
 Route::get('/cafeterias/{cafeteria}', [CafeteriaController::class, 'show']);
+Route::get('/cafeteria_news/{cafeteria_news}', [CafeteriaNewsController::class, 'show']);
 Route::get('/shops/{shop}', [ShopController::class, 'show']);
+Route::get('/shop_news/{shop_news}', [ShopNewsController::class, 'show']);
 
 Route::post('/facilities', [FacilityController::class, 'store']);
 Route::post('/cafeterias', [CafeteriaController::class, 'store']);
