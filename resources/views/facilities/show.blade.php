@@ -52,6 +52,13 @@
                     </tr>
                 @endforeach
             </table>
+            
+            @if (Auth::user()->role_id == 2)
+                <div class="edit">
+                    <a href="/facility_news/{{ $facility->facility_id }}/create">create</a>
+                </div>
+            @endif
+            
         </div>
         
         <div class="footer">

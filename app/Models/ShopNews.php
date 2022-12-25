@@ -12,4 +12,11 @@ class ShopNews extends Model
     use SoftDeletes;
     
     protected $primaryKey = 'news_id'; // 主キー名の変更
+    
+    protected $fillable = [
+        'shop_id',
+        'news_title',
+        'news_content',
+        'img_path',
+    ];
 }

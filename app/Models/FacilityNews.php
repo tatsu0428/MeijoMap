@@ -12,4 +12,11 @@ class FacilityNews extends Model
     use SoftDeletes;
     
     protected $primaryKey = 'news_id'; // 主キー名の変更
+    
+    protected $fillable = [
+        'facility_id',
+        'news_title',
+        'news_content',
+        'img_path',
+    ];
 }

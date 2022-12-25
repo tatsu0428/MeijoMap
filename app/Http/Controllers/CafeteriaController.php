@@ -8,6 +8,8 @@ use App\Models\CafeteriaNews;
 use App\Models\Map;
 use Illuminate\Http\Request;
 
+use Cloudinary;
+
 class CafeteriaController extends Controller
 {
     public function index(Cafeteria $cafeteria)

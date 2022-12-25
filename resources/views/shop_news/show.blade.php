@@ -21,6 +21,10 @@
             {{ $shop_news->news_content }}
         </p>
         
+        <p class='img'>
+            {{ $shop_news->img_path }}
+        </p>
+        
         <div class='footer'>
             <a href="/shops/{{ $shop_news->shop_id }}">戻る</a>
         </div>

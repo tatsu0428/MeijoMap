@@ -8,6 +8,8 @@ use App\Models\ShopNews;
 use App\Models\Map;
 use Illuminate\Http\Request;
 
+use Cloudinary;
+
 class ShopController extends Controller
 {
     public function index(Shop $shop)

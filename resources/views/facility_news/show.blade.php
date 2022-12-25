@@ -21,6 +21,10 @@
             {{ $facility_news->news_content }}
         </p>
         
+        <p class='img'>
+            {{ $facility_news->img_path }}
+        </p>
+        
         <div class='footer'>
             <a href="/facilities/{{ $facility_news->facility_id }}">戻る</a>
         </div>
