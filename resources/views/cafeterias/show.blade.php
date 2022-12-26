@@ -30,10 +30,15 @@
             {{ $cafeteria->congestion_situation }}
         </p>
         
-        @if (Auth::user()->role_id == 2)
-            <div class="edit">
-                <a href="/cafeterias/{{ $cafeteria->cafeteria_id }}/edit">edit</a>
-            </div>
+        @if (Route::has('login'))
+            @auth
+                @if (Auth::user()->role_id == 2)
+                    <div class="edit">
+                        <a href="/cafeterias/{{ $cafeteria->cafeteria_id }}/edit">edit</a>
+                    </div>
+                @endif
+            @else
+            @endauth
         @endif
         
         <div class='menus'>
@@ -45,25 +50,37 @@
                     </h3>
                     <p class='menu_price'>{{ $menu->menu_price }}</p>
                     <p class='sold_out'>{{ $menu->sold_out }}</p>
-                    @if (Auth::user()->role_id == 2)
-                        <div class="edit">
-                            <a href="/menus/{{ $cafeteria->cafeteria_id }}/{{ $menu->menu_id }}/edit">edit</a>
-                        </div>
-                        <form action="/menus/{{ $menu->menu_id }}" id="form_{{ $menu->menu_id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <button type="button" onclick="deleteMenu({{ $menu->menu_id }})">削除</button>
-                            </td>
-                        </form>
+                    
+                    @if (Route::has('login'))
+                        @auth
+                            @if (Auth::user()->role_id == 2)
+                                <div class="edit">
+                                    <a href="/menus/{{ $cafeteria->cafeteria_id }}/{{ $menu->menu_id }}/edit">edit</a>
+                                </div>
+                                <form action="/menus/{{ $menu->menu_id }}" id="form_{{ $menu->menu_id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <td>
+                                        <button type="button" onclick="deleteMenu({{ $menu->menu_id }})">削除</button>
+                                    </td>
+                                </form>
+                            @endif
+                        @else
+                        @endauth
                     @endif
+                    
                 </div>
             @endforeach
             
-            @if (Auth::user()->role_id == 2)
-                <div class="create">
-                    <a href="/menus/{{ $cafeteria->cafeteria_id }}/create">create</a>
-                </div>
+            @if (Route::has('login'))
+                @auth
+                    @if (Auth::user()->role_id == 2)
+                        <div class="create">
+                            <a href="/menus/{{ $cafeteria->cafeteria_id }}/create">create</a>
+                        </div>
+                    @endif
+                @else
+                @endauth
             @endif
             
         </div>
@@ -79,21 +96,33 @@
                                 {{ $selected_cafeteria_news->news_title }}
                             </a>
                         </td>
-                        <form action="/cafeteria_news/{{ $selected_cafeteria_news->news_id }}" id="form_{{ $selected_cafeteria_news->news_id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <button type="button" onclick="deleteCafeteriaNews({{ $selected_cafeteria_news->news_id }})">削除</button> 
-                            </td>
-                        </form>
+                        @if (Route::has('login'))
+                            @auth
+                                @if (Auth::user()->role_id == 2)
+                                    <form action="/cafeteria_news/{{ $selected_cafeteria_news->news_id }}" id="form_{{ $selected_cafeteria_news->news_id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <td>
+                                            <button type="button" onclick="deleteCafeteriaNews({{ $selected_cafeteria_news->news_id }})">削除</button> 
+                                        </td>
+                                    </form>
+                                @endif
+                            @else
+                            @endauth
+                        @endif
                     </tr>
                 @endforeach
             </table>
             
-            @if (Auth::user()->role_id == 2)
-                <div class="create">
-                    <a href="/cafeteria_news/{{ $cafeteria->cafeteria_id }}/create">create</a>
-                </div>
+            @if (Route::has('login'))
+                @auth
+                    @if (Auth::user()->role_id == 2)
+                        <div class="create">
+                            <a href="/cafeteria_news/{{ $cafeteria->cafeteria_id }}/create">create</a>
+                        </div>
+                    @endif
+                @else
+                @endauth
             @endif
             
         </div>

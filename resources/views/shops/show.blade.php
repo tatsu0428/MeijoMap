@@ -25,10 +25,15 @@
             {{ $shop->business_hours }}
         </p>
         
-        @if (Auth::user()->role_id == 2)
-            <div class="edit">
-                <a href="/shops/{{ $shop->shop_id }}/edit">edit</a>
-            </div>
+        @if (Route::has('login'))
+            @auth
+                @if (Auth::user()->role_id == 2)
+                    <div class="edit">
+                        <a href="/shops/{{ $shop->shop_id }}/edit">edit</a>
+                    </div>
+                @endif
+            @else
+            @endauth
         @endif
         
         <div class='items'>
@@ -40,25 +45,37 @@
                     </h3>
                     <p class='item_price'>{{ $item->item_price }}</p>
                     <p class='sold_out'>{{ $item->sold_out }}</p>
-                    @if (Auth::user()->role_id == 2)
-                        <div class="edit">
-                            <a href="/items/{{ $shop->shop_id }}/{{ $item->item_id }}/edit">edit</a>
-                        </div>
-                        <form action="/items/{{ $item->item_id }}" id="form_{{ $item->item_id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <button type="button" onclick="deleteItem({{ $item->item_id }})">削除</button> 
-                            </td>
-                        </form>
+                    
+                    @if (Route::has('login'))
+                        @auth
+                            @if (Auth::user()->role_id == 2)
+                                <div class="edit">
+                                    <a href="/items/{{ $shop->shop_id }}/{{ $item->item_id }}/edit">edit</a>
+                                </div>
+                                <form action="/items/{{ $item->item_id }}" id="form_{{ $item->item_id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <td>
+                                        <button type="button" onclick="deleteItem({{ $item->item_id }})">削除</button> 
+                                    </td>
+                                </form>
+                            @endif
+                        @else
+                        @endauth
                     @endif
+                    
                 </div>
             @endforeach
             
-            @if (Auth::user()->role_id == 2)
-                <div class="create">
-                    <a href="/items/{{ $shop->shop_id }}/create">create</a>
-                </div>
+            @if (Route::has('login'))
+                @auth
+                    @if (Auth::user()->role_id == 2)
+                        <div class="create">
+                            <a href="/items/{{ $shop->shop_id }}/create">create</a>
+                        </div>
+                    @endif
+                @else
+                @endauth
             @endif
             
         </div>
@@ -74,21 +91,35 @@
                                 {{ $selected_shop_news->news_title }}
                             </a>
                         </td>
-                        <form action="/shop_news/{{ $selected_shop_news->news_id }}" id="form_{{ $selected_shop_news->news_id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <button type="button" onclick="deleteShopNews({{ $selected_shop_news->news_id }})">削除</button> 
-                            </td>
-                        </form>
+                        
+                        @if (Route::has('login'))
+                            @auth
+                                @if (Auth::user()->role_id == 2)
+                                    <form action="/shop_news/{{ $selected_shop_news->news_id }}" id="form_{{ $selected_shop_news->news_id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <td>
+                                            <button type="button" onclick="deleteShopNews({{ $selected_shop_news->news_id }})">削除</button> 
+                                        </td>
+                                    </form>
+                                @endif
+                            @else
+                            @endauth
+                        @endif
+                        
                     </tr>
                 @endforeach
             </table>
             
-            @if (Auth::user()->role_id == 2)
-                <div class="create">
-                    <a href="/shop_news/{{ $shop->shop_id }}/create">create</a>
-                </div>
+            @if (Route::has('login'))
+                @auth
+                    @if (Auth::user()->role_id == 2)
+                        <div class="create">
+                            <a href="/shop_news/{{ $shop->shop_id }}/create">create</a>
+                        </div>
+                    @endif
+                @else
+                @endauth
             @endif
             
         </div>

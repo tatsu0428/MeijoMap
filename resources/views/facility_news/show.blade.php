@@ -25,10 +25,15 @@
             {{ $facility_news->img_path }}
         </p>
         
-        @if (Auth::user()->role_id == 2)
-            <div class="edit">
-                <a href="/facility_news/{{ $facility_news->news_id }}/edit">edit</a>
-            </div>
+        @if (Route::has('login'))
+            @auth
+                @if (Auth::user()->role_id == 2)
+                    <div class="edit">
+                        <a href="/facility_news/{{ $facility_news->news_id }}/edit">edit</a>
+                    </div>
+                @endif
+            @else
+            @endauth
         @endif
         
         <div class='footer'>

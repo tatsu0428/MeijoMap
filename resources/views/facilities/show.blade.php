@@ -25,10 +25,15 @@
             {{ $facility->business_hours }}
         </p>
         
-        @if (Auth::user()->role_id == 2)
-            <div class="edit">
-                <a href="/facilities/{{ $facility->facility_id }}/edit">edit</a>
-            </div>
+        @if (Route::has('login'))
+            @auth
+                @if (Auth::user()->role_id == 2)
+                    <div class="edit">
+                        <a href="/facilities/{{ $facility->facility_id }}/edit">edit</a>
+                    </div>
+                @endif
+            @else
+            @endauth
         @endif
         
         <div class='facility_news'>
@@ -42,21 +47,35 @@
                                 {{ $selected_facility_news->news_title }}
                             </a>
                         </td>
-                        <form action="/facility_news/{{ $selected_facility_news->news_id }}" id="form_{{ $selected_facility_news->news_id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <button type="button" onclick="deleteFacilityNews({{ $selected_facility_news->news_id }})">削除</button> 
-                            </td>
-                        </form>
+                        
+                        @if (Route::has('login'))
+                            @auth
+                                @if (Auth::user()->role_id == 2)
+                                    <form action="/facility_news/{{ $selected_facility_news->news_id }}" id="form_{{ $selected_facility_news->news_id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <td>
+                                            <button type="button" onclick="deleteFacilityNews({{ $selected_facility_news->news_id }})">削除</button> 
+                                        </td>
+                                    </form>
+                                @endif
+                            @else
+                            @endauth
+                        @endif
+                        
                     </tr>
                 @endforeach
             </table>
             
-            @if (Auth::user()->role_id == 2)
-                <div class="create">
-                    <a href="/facility_news/{{ $facility->facility_id }}/create">create</a>
-                </div>
+            @if (Route::has('login'))
+                @auth
+                    @if (Auth::user()->role_id == 2)
+                        <div class="create">
+                            <a href="/facility_news/{{ $facility->facility_id }}/create">create</a>
+                        </div>
+                    @endif
+                @else
+                @endauth
             @endif
             
         </div>
